@@ -3,5 +3,13 @@ package coingeckoapi
 import "net/http"
 
 func Ping() (*http.Response, error) {
-	return http.Get(CoingeckoAPIURL + "/ping" + "?x_cg_demo_api_key=" + CoingeckoAPIKey)
+	client := http.Client{}
+	req, err := http.NewRequest("GET", CoingeckoAPIURL+"/ping", nil)
+	if err != nil {
+		return nil, err
+	}
+	req.Header = http.Header{
+		"x-cg-demo-api-key": {CoingeckoAPIKey},
+	}
+	return client.Do(req)
 }
