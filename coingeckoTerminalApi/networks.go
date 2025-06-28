@@ -29,8 +29,6 @@ type networkList struct {
 	Attributes  networkAttributes `json:"attributes"`
 }
 
-const CoingeckoTerminalBaseURL = "https://api.geckoterminal.com/api/v2"
-
 func Networks() (*http.Response, error) {
 	return http.Get(CoingeckoTerminalBaseURL + "/networks")
 }

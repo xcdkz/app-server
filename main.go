@@ -1,6 +1,7 @@
 package main
 
 import (
+	coingeckoapi "app-server/coingeckoApi"
 	coingeckoterminalapi "app-server/coingeckoTerminalApi"
 	"encoding/json"
 )
@@ -17,4 +18,11 @@ func main() {
 		panic(err)
 	}
 	println(string(t))
+
+	ping, err := coingeckoapi.Ping()
+	if err != nil {
+		panic(err)
+	}
+	defer ping.Body.Close()
+	println(ping.StatusCode)
 }
