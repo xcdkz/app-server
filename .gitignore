@@ -1,5 +1,4 @@
 .config/
 .cache/
 .bash_history
-coingeckoApi/root.go
-coingeckoTerminalApi/root.go
+*root.go
