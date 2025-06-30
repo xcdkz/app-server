@@ -1,6 +1,9 @@
 package main
 
-import "app-server/coingeckoApi/simple"
+import (
+	"app-server/coingeckoApi/simple"
+	"encoding/json"
+)
 
 const CoingeckoTerminalBaseURL = "https://api.geckoterminal.com/api/v2"
 
@@ -26,10 +29,10 @@ func main() {
 	// defer ping.Body.Close()
 	// println(ping.StatusCode)
 	//
-	simple.Price(
-		"usd,eur",
+	sp, err := simple.PriceMaps(
+		"pln,eur,usd",
 		"bitcoin,ethereum",
-		"",
+		"Bitcoin,Ethereum",
 		"btc,eth",
 		"",
 		false,
@@ -37,4 +40,12 @@ func main() {
 		false,
 		false,
 		"5")
+	if err != nil {
+		panic(err)
+	}
+	t, err := json.MarshalIndent(*sp, "", " ")
+	if err != nil {
+		panic(err)
+	}
+	println(string(t))
 }
