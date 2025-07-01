@@ -48,4 +48,22 @@ func main() {
 		panic(err)
 	}
 	println(string(t))
+
+	tpm, err := simple.TokenPriceMap(
+		"ethereum",
+		"0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+		"pln",
+		true,
+		true,
+		true,
+		true,
+		"5")
+	if err != nil {
+		panic(err)
+	}
+	t, err = json.MarshalIndent(*tpm, "", " ")
+	if err != nil {
+		panic(err)
+	}
+	println(string(t))
 }
