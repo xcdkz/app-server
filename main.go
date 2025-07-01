@@ -1,6 +1,7 @@
 package main
 
 import (
+	"app-server/coingeckoApi/coins"
 	"app-server/coingeckoApi/simple"
 	"encoding/json"
 )
@@ -76,4 +77,14 @@ func main() {
 		panic(err)
 	}
 	println(string(t))
+
+	cl, err := coins.ListStructs(true)
+	if err != nil {
+		panic(err)
+	}
+	tc, err := json.MarshalIndent(&cl, "", " ")
+	if err != nil {
+		panic(err)
+	}
+	println(string(tc))
 }
