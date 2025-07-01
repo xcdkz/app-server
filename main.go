@@ -66,4 +66,14 @@ func main() {
 		panic(err)
 	}
 	println(string(t))
+
+	svca, err := simple.SupportedVsCurrenciesArray()
+	if err != nil {
+		panic(err)
+	}
+	t, err = json.MarshalIndent(&svca, "", " ")
+	if err != nil {
+		panic(err)
+	}
+	println(string(t))
 }
