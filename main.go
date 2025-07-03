@@ -107,13 +107,23 @@ func main() {
 	// }
 	// println(string(i))
 
-	tickers, err := coins.TickersStruct("wrapped-eeth", "", true, "", "", true, "")
+	// tickers, err := coins.TickersStruct("ethereum", "", true, "", "", true, "")
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// t, err := json.MarshalIndent(&tickers, "", " ")
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// println(string(t))
+
+	history, err := coins.TickersStruct("ethereum", "", true, "", "", true, "")
 	if err != nil {
 		panic(err)
 	}
-	t, err := json.MarshalIndent(&tickers, "", " ")
+	h, err := json.MarshalIndent(&history, "", " ")
 	if err != nil {
 		panic(err)
 	}
-	println(string(t))
+	println(string(h))
 }
