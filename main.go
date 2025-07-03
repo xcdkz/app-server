@@ -87,13 +87,22 @@ func main() {
 	// }
 	// println(string(tc))
 	//
-	markets, err := coins.MarketsStruct("pln", "bitcoin,ethereum", "", "", "", "", "", "", "", false, "", "", "")
+	// markets, err := coins.MarketsStruct("pln", "bitcoin,ethereum", "", "", "", "", "", "", "", false, "", "", "")
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// ms, err := json.MarshalIndent(&markets, "", " ")
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// println(string(ms))
+	identifier, err := coins.IdStruct("bitcoin", true, true, true, true, true, true, "")
 	if err != nil {
 		panic(err)
 	}
-	ms, err := json.MarshalIndent(&markets, "", " ")
+	i, err := json.MarshalIndent(&identifier, "", " ")
 	if err != nil {
 		panic(err)
 	}
-	println(string(ms))
+	println(string(i))
 }

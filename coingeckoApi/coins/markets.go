@@ -9,9 +9,9 @@ import (
 )
 
 type roiStruct struct {
-	times      float64 `json:"times"`
-	currency   string  `json:"currency"`
-	percentage float64 `json:"percentage"`
+	Times      float64 `json:"times"`
+	Currency   string  `json:"currency"`
+	Percentage float64 `json:"percentage"`
 }
 
 type marketsStruct struct {
