@@ -96,7 +96,7 @@ func main() {
 	// 	panic(err)
 	// }
 	// println(string(ms))
-	identifier, err := coins.IdStruct("bitcoin", true, true, true, true, true, true, "")
+	identifier, err := coins.IdStruct("ripple", true, true, true, true, true, true, "")
 	if err != nil {
 		panic(err)
 	}

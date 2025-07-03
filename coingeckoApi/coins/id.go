@@ -18,18 +18,24 @@ type linksStruct struct {
 	Snapshot_url                  *string             `json:"snapshot_url"`
 	Twitter_screen_name           *string             `json:"twitter_screen_name"`
 	Facebook_username             *string             `json:"facebook_username"`
-	Bitcointalk_thread_identifier *string             `json:"bitcointalk_thread_identifier"`
+	Bitcointalk_thread_identifier *int                `json:"bitcointalk_thread_identifier"`
 	Telegram_channel_identifier   *string             `json:"telegram_channel_identifier"`
 	Subreddit_url                 *string             `json:"subreddit_url"`
 	Repos_url                     map[string][]string `json:"repos_url"`
 }
 
+type marketRoiStruct struct {
+	Times      float64 `json:"times"`
+	Currency   string  `json:"currency"`
+	Percentage float64 `json:"percentage"`
+}
+
 type marketDataStruct struct {
 	Current_price                                map[string]float64 `json:"current_price"`
-	Total_value_locked                           *float64           `json:"total_value_locked"`
+	Total_value_locked                           map[string]float64 `json:"total_value_locked"`
 	Mcap_to_tvl_ratio                            *float64           `json:"mcap_to_tvl_ratio"`
 	Fdv_to_tvl_ratio                             *float64           `json:"fdv_to_tvl_ratio"`
-	Roi                                          *float64           `json:"roi"`
+	Roi                                          marketRoiStruct    `json:"roi"`
 	Ath                                          map[string]float64 `json:"ath"`
 	Ath_change_percentage                        map[string]float64 `json:"ath_change_percentage"`
 	Ath_date                                     map[string]string  `json:"ath_date"`
@@ -109,35 +115,35 @@ type tickersStruct struct {
 }
 
 type idStruct struct {
-	Id                              *string                      `json:"id"`
-	Symbol                          *string                      `json:"symbol"`
-	Name                            *string                      `json:"name"`
-	WebSlug                         *string                      `json:"web_slug"`
-	Asset_platform_id               *string                      `json:"asset_platform_id"`
-	Plaftorms                       map[string]string            `json:"plaftorms"`
-	Detail_platforms                map[string]map[string]string `json:"detail_platforms"`
-	Block_time_in_minutes           *float64                     `json:"block_time_in_minutes"`
-	Hashing_algorithm               *string                      `json:"hashing_algorithm"`
-	Categories                      []string                     `json:"categories"`
-	Preview_listing                 bool                         `json:"preview_listing"`
-	Public_notice                   *string                      `json:"public_notice"`
-	Additional_notices              []string                     `json:"additional_notices"`
-	Localization                    map[string]string            `json:"localization"`
-	Description                     map[string]string            `json:"description"`
-	Links                           linksStruct                  `json:"links"`
-	Image                           map[string]string            `json:"image"`
-	Country_origin                  *string                      `json:"country_origin"`
-	Genesis_date                    *string                      `json:"genesis_date"`
-	Sentiment_votes_up_percentage   float64                      `json:"sentiment_votes_up_percentage"`
-	Sentiment_votes_down_percentage float64                      `json:"sentiment_votes_down_percentage"`
-	Watchlist_portfolio_users       int                          `json:"watchlist_portfolio_users"`
-	Market_cap_rank                 int                          `json:"market_cap_rank"`
-	Market_data                     marketDataStruct             `json:"market_data"`
-	Community_data                  map[string]float64           `json:"community_data"`
-	Developer_data                  developerDataStruct          `json:"developer_data"`
-	Status_updates                  []string                     `json:"status_updates"`
-	Last_updated                    *string                      `json:"last_updated"`
-	Tickers                         []tickersStruct              `json:"tickers"`
+	Id                              *string                   `json:"id"`
+	Symbol                          *string                   `json:"symbol"`
+	Name                            *string                   `json:"name"`
+	WebSlug                         *string                   `json:"web_slug"`
+	Asset_platform_id               *string                   `json:"asset_platform_id"`
+	Plaftorms                       map[string]string         `json:"plaftorms"`
+	Detail_platforms                map[string]map[string]any `json:"detail_platforms"`
+	Block_time_in_minutes           *float64                  `json:"block_time_in_minutes"`
+	Hashing_algorithm               *string                   `json:"hashing_algorithm"`
+	Categories                      []string                  `json:"categories"`
+	Preview_listing                 bool                      `json:"preview_listing"`
+	Public_notice                   *string                   `json:"public_notice"`
+	Additional_notices              []string                  `json:"additional_notices"`
+	Localization                    map[string]string         `json:"localization"`
+	Description                     map[string]string         `json:"description"`
+	Links                           linksStruct               `json:"links"`
+	Image                           map[string]string         `json:"image"`
+	Country_origin                  *string                   `json:"country_origin"`
+	Genesis_date                    *string                   `json:"genesis_date"`
+	Sentiment_votes_up_percentage   float64                   `json:"sentiment_votes_up_percentage"`
+	Sentiment_votes_down_percentage float64                   `json:"sentiment_votes_down_percentage"`
+	Watchlist_portfolio_users       int                       `json:"watchlist_portfolio_users"`
+	Market_cap_rank                 int                       `json:"market_cap_rank"`
+	Market_data                     marketDataStruct          `json:"market_data"`
+	Community_data                  map[string]float64        `json:"community_data"`
+	Developer_data                  developerDataStruct       `json:"developer_data"`
+	Status_updates                  []string                  `json:"status_updates"`
+	Last_updated                    *string                   `json:"last_updated"`
+	Tickers                         []tickersStruct           `json:"tickers"`
 }
 
 func Id(
