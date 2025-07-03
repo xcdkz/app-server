@@ -117,7 +117,7 @@ func main() {
 	// }
 	// println(string(t))
 
-	history, err := coins.TickersStruct("ethereum", "", true, "", "", true, "")
+	history, err := coins.HistoryStruct("ethereum", "30-12-2024", true)
 	if err != nil {
 		panic(err)
 	}
