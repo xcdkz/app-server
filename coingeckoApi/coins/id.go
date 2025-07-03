@@ -93,7 +93,7 @@ type tickersMarketStruct struct {
 	Has_trading_incentive *bool   `json:"has_trading_incentive"`
 }
 
-type tickersStruct struct {
+type idTickersStruct struct {
 	Base                      *string             `json:"base"`
 	Target                    *string             `json:"target"`
 	Market                    tickersMarketStruct `json:"market"`
@@ -143,7 +143,7 @@ type idStruct struct {
 	Developer_data                  developerDataStruct       `json:"developer_data"`
 	Status_updates                  []string                  `json:"status_updates"`
 	Last_updated                    *string                   `json:"last_updated"`
-	Tickers                         []tickersStruct           `json:"tickers"`
+	Tickers                         []idTickersStruct         `json:"tickers"`
 }
 
 func Id(

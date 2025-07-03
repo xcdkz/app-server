@@ -96,13 +96,24 @@ func main() {
 	// 	panic(err)
 	// }
 	// println(string(ms))
-	identifier, err := coins.IdStruct("ripple", true, true, true, true, true, true, "")
+	//
+	// identifier, err := coins.IdStruct("wrapped-eeth", true, true, true, true, true, true, "")
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// i, err := json.MarshalIndent(&identifier, "", " ")
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// println(string(i))
+
+	tickers, err := coins.TickersStruct("wrapped-eeth", "", true, "", "", true, "")
 	if err != nil {
 		panic(err)
 	}
-	i, err := json.MarshalIndent(&identifier, "", " ")
+	t, err := json.MarshalIndent(&tickers, "", " ")
 	if err != nil {
 		panic(err)
 	}
-	println(string(i))
+	println(string(t))
 }
