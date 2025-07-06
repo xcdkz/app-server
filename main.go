@@ -117,13 +117,23 @@ func main() {
 	// }
 	// println(string(t))
 
-	history, err := coins.HistoryStruct("ethereum", "30-12-2024", true)
+	// history, err := coins.HistoryStruct("ethereum", "30-12-2024", true)
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// h, err := json.MarshalIndent(&history, "", " ")
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// println(string(h))
+
+	marketChart, err := coins.MarketChartStruct("ethereum", "pln", "1", "daily", "5")
 	if err != nil {
 		panic(err)
 	}
-	h, err := json.MarshalIndent(&history, "", " ")
+	mc, err := json.MarshalIndent(&marketChart, "", " ")
 	if err != nil {
 		panic(err)
 	}
-	println(string(h))
+	println(string(mc))
 }
