@@ -127,13 +127,23 @@ func main() {
 	// }
 	// println(string(h))
 
-	marketChart, err := coins.MarketChartStruct("ethereum", "pln", "1", "daily", "5")
+	// marketChart, err := coins.MarketChartStruct("ethereum", "pln", "1", "daily", "5")
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// mc, err := json.MarshalIndent(&marketChart, "", " ")
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// println(string(mc))
+
+	rangeS, err := coins.RangeStruct("bitcoin", "pln", 1711929600, 1712275200, "5")
 	if err != nil {
 		panic(err)
 	}
-	mc, err := json.MarshalIndent(&marketChart, "", " ")
+	r, err := json.MarshalIndent(&rangeS, "", " ")
 	if err != nil {
 		panic(err)
 	}
-	println(string(mc))
+	println(string(r))
 }
