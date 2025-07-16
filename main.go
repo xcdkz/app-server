@@ -137,7 +137,7 @@ func main() {
 	// }
 	// println(string(mc))
 
-	rangeS, err := coins.RangeStruct("bitcoin", "pln", 1711929600, 1712275200, "5")
+	rangeS, err := coins.RangeStruct("bitcoin", "pln", "1711929600", "1712275200", "5")
 	if err != nil {
 		panic(err)
 	}

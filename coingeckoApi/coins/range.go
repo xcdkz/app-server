@@ -17,11 +17,11 @@ type rangeStruct struct {
 func Range(
 	id string,
 	vs_currency string,
-	from int,
-	to int,
+	from_int string,
+	to_int string,
 	precision string,
 ) (*http.Response, error) {
-	urlAddress := "vs_currency=" + vs_currency + "&from=" + string(from) + "&to=" + string(to)
+	urlAddress := "vs_currency=" + vs_currency + "&from=" + from_int + "&to=" + to_int
 	if len(precision) > 0 {
 		urlAddress += "&precision=" + precision
 	}
@@ -41,11 +41,11 @@ func Range(
 func RangeStruct(
 	id string,
 	vs_currency string,
-	from int,
-	to int,
+	from_int string,
+	to_int string,
 	precision string,
 ) (*rangeStruct, error) {
-	rangeR, err := Range(id, vs_currency, from, to, precision)
+	rangeR, err := Range(id, vs_currency, from_int, to_int, precision)
 	if err != nil {
 		return nil, err
 	}
